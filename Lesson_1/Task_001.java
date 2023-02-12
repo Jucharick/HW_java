@@ -11,6 +11,8 @@ class Task_001 {
         System.out.println(triangle(n));
         System.out.print(String.format("Факториал числа %d => ", n));
         System.out.println(factorial(n));
+        // без рекурсии
+        System.out.println(fact(n));
         
         iScanner.close();
     }
@@ -20,6 +22,16 @@ class Task_001 {
         return result;
     } 
 
+    static int fact (int n) {
+        int i = 1;
+        int fact = 1;
+        while (i <= n){
+            fact *= i;
+            i += 1;
+        }
+        return fact;
+    }
+    
     static int factorial (int n) {
         if(n==1)return 1;
         return n * factorial(n-1);
