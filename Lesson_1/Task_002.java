@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
 // Вывести все простые числа от 1 до 1000
 // Просто́е число́ — натуральное число, имеющее ровно два различных натуральных делителя.
 // Последовательность простых чисел начинается так:
@@ -19,5 +22,23 @@ public class Task_002 {
             }
             count = 0;
         }
+        System.out.println();
+
+
+        System.out.println("Через list");
+        ArrayList<Integer> primeNumber = new ArrayList<Integer> ();
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                if (i % j == 0) {
+                    count++;
+                }
+            }
+            if (count == 2) {
+                primeNumber.add (i);
+            }
+            count = 0;
+        }
+        System.out.println(primeNumber);
+
     }
 }
