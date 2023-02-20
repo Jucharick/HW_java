@@ -18,17 +18,18 @@ public class Task_002 {
         numbers.add(22);
         numbers.add(23);
         numbers.add(27);
+        
         System.out.println(numbers);
         deleteEvenNumbers (numbers);
         System.out.println(numbers);
     }
 
     private static void deleteEvenNumbers (ArrayList<Integer> numbers) throws IOException {
-            for (int i = 0; i < numbers.size(); i++){
-                if (numbers.get(i) % 2 == 0) {
-                    numbers.remove(i);
-                    i--;
-                }
+        for (int i = 0; i < numbers.size(); i++){
+            if (numbers.get(i) % 2 == 0) {
+                numbers.remove(i);
+                i--;
             }
+        }
     }
 }
