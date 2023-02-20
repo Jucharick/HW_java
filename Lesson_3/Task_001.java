@@ -12,23 +12,49 @@ public class Task_001 {
         System.out.println(Arrays.toString(sortMerge(arrayNum)));
     }
 
-    private static int[] sort(int[] array) {
-        int startI = 0;
-        int middleI = array.length / 2;
-        int endI = array.length - 1;
-        int[] result = new int [array.length / 2];
-        while (startI < middleI && middleI + 1 <= endI) {
-            
+    private static int[] sortMerge(int[] array) {
+        int[] temp;
+        int[] currentSrc = array; // массив - источник, откуда мы сливаем массивы друг с другом
+        int[] currentDest = new int[array.length]; // массив - приеник, куда мы заливаем результирующие массивы после слияния
+
+        int size = 1;
+        while (size < array.length) {
+            for (int i = 0; i < array.length; i += 2 * size) {
+                merge(currentSrc, i, currentSrc, i + size, currentDest, i, size);
+            }
+            temp = currentSrc;
+            currentSrc = currentDest;
+            currentDest = temp;
+            size = size * 2;
         }
+        return currentSrc;
     }
 
-    private static int[] sortMerge (int[] array) {
+    private static void merge(int[] left, int leftStart, int[] right, int rightStart, int[] dest,
+                              int destStart, int size) {
+        int indexL = leftStart;
+        int indexR = rightStart;
 
+        int leftEnd = Math.min(leftStart + size, left.length);
+        int right2End = Math.min(rightStart + size, right.length);
 
+        if (leftStart + size > left.length) {
+            for (int i = leftStart; i < leftEnd; i++) {
+                dest[i] = left[i];
+            }
+            return;
+        }
 
-        int i = 0; int j = 0; int k = 0;
+        int iterationCount = leftEnd - leftStart + right2End - rightStart; // сколько итераций цикла для объединения двух массивов - суммарное количество элементов в двух подмассивах
 
-
-        return array;
+        for (int i = destStart; i < destStart + iterationCount; i++) {
+            if (indexL < leftEnd && (indexR >= right2End || left[indexL] < right[indexR])) { // indexL < leftEnd && (indexR >= right2End - когда в первом или во втором массиве заканчиваются элементы
+                dest[i] = left[indexL];
+                indexL++;
+            } else {
+                dest[i] = right[indexR];
+                indexR++;
+            }
+        }
     }
 }
