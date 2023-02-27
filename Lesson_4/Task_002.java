@@ -9,6 +9,7 @@ public class Task_002 {
     private static LinkedList<Integer> list = new LinkedList<Integer>();
 
     public static void main(String[] args) {
+        System.out.println(isEmpty());
         enqueue(1); // enqueue() - помещает элемент в конец очереди
         enqueue(2);
         enqueue(3);
@@ -17,7 +18,7 @@ public class Task_002 {
         enqueue(4);
 
         System.out.println(size());
-        System.out.println(isEmpty(0));
+        System.out.println(isEmpty());
         System.out.println(first()); // first() - возвращает первый элемент из очереди, не удаляя
 
         System.out.println(dequeue()); // dequeue() - возвращает первый элемент из очереди и удаляет его
@@ -42,7 +43,7 @@ public class Task_002 {
         return list.size();
     }
 
-    public static boolean isEmpty (int element){
+    public static boolean isEmpty (){
         return list.isEmpty();
     }
 }
