@@ -19,12 +19,25 @@ public class Task_001 {
         System.out.println(numbers);
         getArrayDeque(numbers);
 
+        System.out.println("метод, который ВОЗВРАЩАЕТ 'перевернутый' список");
+        revertList(numbers);
+        System.out.println(numbers);
     }
-    private static void getArrayDeque (LinkedList<Integer> array){
+
+    public static void getArrayDeque (LinkedList<Integer> array){ // только вывод
         ArrayDeque<Integer> deque = new ArrayDeque<>();
         for (int i = 0; i < array.size(); i++) {
             deque.push(array.get(i));
         }
         System.out.println(deque);
+    }
+
+    public static LinkedList<Integer> revertList (LinkedList<Integer> numbers) {
+        for (int i = 0; i < numbers.size() / 2; i++) {
+            int temp = numbers.get(i);
+            numbers.set(i, numbers.get(numbers.size() - 1 - i));
+            numbers.set(numbers.size() - 1 - i, temp);
+        }
+        return numbers;
     }
 }
