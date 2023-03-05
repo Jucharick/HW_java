@@ -12,8 +12,21 @@
 
 package Lesson_6_finalProject;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class program {
     public static void main(String[] args) {
-        
+        Set<Laptop> setLaptop = new HashSet<>();
+        setLaptop.add(new Laptop("Windows", 1298, 350, 128, 12, 1150, "grey"));
+        setLaptop.add(new Laptop("macOS", 1321, 500, 64, 12, 1050, "black"));
+        setLaptop.add(new Laptop("Windows", 1750, 750, 128, 12, 1150, "grey"));
+        setLaptop.add(new Laptop("Stratodesk", 1298, 450, 128, 12, 950, "black"));
+        setLaptop.add(new Laptop("Windows", 1752, 600, 64, 12, 950, "red"));
+        setLaptop.add(new Laptop("macOS", 1298, 350, 32, 12, 750, "yellow"));
+
+        for (Laptop laptop : setLaptop) {
+            System.out.println(laptop);
+        }
     }
 }

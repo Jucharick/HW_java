@@ -6,10 +6,10 @@ public class Laptop {
     private Integer speed;
     private Integer ram;
     private Integer hd;
-    private Float price;
+    private Integer price;
     private String color;
 
-    public Laptop (String os, Integer model, Integer speed, Integer ram, Integer hd, Float price, String color) {
+    public Laptop (String os, Integer model, Integer speed, Integer ram, Integer hd, Integer price, String color) {
         this.os = os;
         this.model = model;
         this.speed = speed;
@@ -39,7 +39,7 @@ public class Laptop {
         return hd;
     }
 
-    public Float getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
